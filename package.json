@@ -1,0 +1,17 @@
+{
+  "name": "toni-armas-store",
+  "version": "1.0.0",
+  "description": "Lojas Integradas store template",
+  "main": "index.js",
+  "repository": "https://github.com/luanmessias/toni-armas-store.git",
+  "author": "Luan Messias <luanmessias10@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
+    "babelify": "^10.0.0",
+    "browserify": "^17.0.0",
+    "gulp": "^4.0.2",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}

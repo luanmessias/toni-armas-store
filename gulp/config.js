@@ -63,9 +63,9 @@ module.exports = {
     // ------------------------------------------------- scripts
     scripts: {
         src: [
-            './src/assets/scripts/js/**/*.js',
+            './dist/*.js',
         ],
-        dest: './dist/assets/js'
+        dest: './public/js'
     },
     // -------------------------------------------------- styles
     styles: {
@@ -77,9 +77,10 @@ module.exports = {
     // ---------------------------------------------- typescript
     typescript: {
         src: [
-            './src/assets/scripts/ts/**/*.ts'
+            './src/typescript/main.ts'
         ],
-        dest: './src/assets/scripts/js',
+        outputName: 'custom.js',
+        dest: './dist/',
         opts: {
             noImplicitAny: true
         }

@@ -12,7 +12,7 @@ module.exports = function (gulp, plugins) {
             gulp.src(config.sass.src)
                 .pipe(plugins.sourcemaps.init())
                 .pipe(plugins.sass().on('error', plugins.sass.logError))
-                .pipe(plugins.autoprefixer(config.autoprefixer.opts))
+                //.pipe(plugins.autoprefixer(config.autoprefixer.opts))
                 .pipe(plugins.sourcemaps.write('.'))
                 .pipe(gulp.dest(config.sass.dest))
         // ---------------------------------------------- End Task

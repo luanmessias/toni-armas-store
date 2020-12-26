@@ -13,9 +13,10 @@ module.exports = function (gulp, plugins) {
             gulp.src(config.scripts.src)
                 .pipe(plugins.sourcemaps.init())
                 .pipe(plugins.uglify())
+                .pipe(plugins.rename(config.typescript.outputName))
                 .pipe(plugins.rename(config.rename.min))
                 .pipe(plugins.sourcemaps.write('.'))
-                .pipe(gulp.dest(config.dist.scripts.js));
+                .pipe(gulp.dest(config.scripts.dest));
         // ------------------------------------------------ End Task
         return stream;
     };

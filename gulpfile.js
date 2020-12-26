@@ -28,11 +28,16 @@ gulp.task('clean',      getTask('clean'));
 gulp.task('moveDist',   getTask('move-dist'));
 gulp.task('vendors',    getTask('vendors'));
 gulp.task('html',       getTask('html'));
+gulp.task('upload',     getTask('s3_upload'));
 
 // --------------------------------------- Default Gulp Task
-gulp.task('default', gulp.series(
-	gulp.parallel('sass'), ('styles'), 'clean')
+gulp.task('default',gulp.series(
+		gulp.parallel('ts', 'sass'),
+		gulp.parallel('scripts', 'styles'),
+		gulp.parallel('upload', 'clean'),
+	)
 );
+
 
 // ---------------------------------------------- gulp build
 // vendors - task which moves and operates on node_modules

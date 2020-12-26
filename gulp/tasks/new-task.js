@@ -3,7 +3,7 @@
 // Description: creates a new multifile task template
 // Dependencies: npm install gulp-rename gulp-load-plugins
 // =========================================================
-var config              = require('../config.js');
+var config = require('../config.js');
 
 module.exports = function(gulp, plugins) {
     return function() {

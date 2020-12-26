@@ -19,19 +19,19 @@ function getTask(task) {
 
 // ---------------------------------------------- Gulp Tasks
 gulp.task('sass',       getTask('sass'));
-// gulp.task('scripts',    getTask('scripts'));
-// gulp.task('styles',     getTask('styles'));
-// gulp.task('ts',         getTask('typescript'));
-// gulp.task('new-task',   getTask('new-task'));
-// gulp.task('sync',       getTask('browsersync'));
-// gulp.task('clean',      getTask('clean'));
-// gulp.task('moveDist',   getTask('move-dist'));
-// gulp.task('vendors',    getTask('vendors'));
-// gulp.task('html',       getTask('html'));
+gulp.task('scripts',    getTask('scripts'));
+gulp.task('styles',     getTask('styles'));
+gulp.task('ts',         getTask('typescript'));
+gulp.task('new-task',   getTask('new-task'));
+gulp.task('sync',       getTask('browsersync'));
+gulp.task('clean',      getTask('clean'));
+gulp.task('moveDist',   getTask('move-dist'));
+gulp.task('vendors',    getTask('vendors'));
+gulp.task('html',       getTask('html'));
 
 // --------------------------------------- Default Gulp Task
 gulp.task('default', gulp.series(
-	gulp.parallel('sass', 'ts'), 'sync')
+	gulp.parallel('sass'), ('styles'), 'clean')
 );
 
 // ---------------------------------------------- gulp build

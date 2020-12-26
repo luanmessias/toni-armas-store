@@ -28,6 +28,7 @@ gulp.task('clean',      getTask('clean'));
 gulp.task('moveDist',   getTask('move-dist'));
 gulp.task('vendors',    getTask('vendors'));
 gulp.task('html',       getTask('html'));
+gulp.task('watch',      getTask('watch'));
 gulp.task('upload',     getTask('s3_upload'));
 
 // --------------------------------------- Default Gulp Task
@@ -38,12 +39,19 @@ gulp.task('default',gulp.series(
 	)
 );
 
+// --------------------------------------- Compile Gulp Task
+gulp.task('default', gulp.series(
+	gulp.parallel('ts', 'sass'),
+	gulp.parallel('scripts', 'styles'),
+	gulp.parallel('clean')
+));
 
-// ---------------------------------------------- gulp build
-// vendors - task which moves and operates on node_modules
-// and bower_components dependencies
-// moveDist: moves dist folder to another location
-// on the file system (useful for multiple repos e.g. gh-pages)
+// --------------------------------------- Compile Gulp Task
+gulp.task('upload', gulp.series(
+	gulp.parallel('upload')
+));
+
+
 gulp.task('build', gulp.series('clean',
 	gulp.parallel('scripts', 'styles', 'html'), 'vendors', 'moveDist')
 );

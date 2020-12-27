@@ -49,7 +49,9 @@ module.exports = {
     },
     // -------------------------------------------------- rename
     rename: {
-        min: { suffix: '.min' }
+        min: { suffix: '.min' },
+        outputNameJs: 'custom.js',
+        outputNameCss: 'custom.css',
     },
     // ---------------------------------------------------- sass
     sass: {
@@ -57,7 +59,6 @@ module.exports = {
             "./src/sass/main.scss"
         ],
         opts: {}, // add sass options here
-        outputName: 'custom.css',
         dest: './dist/'
     },
     // ------------------------------------------------- scripts
@@ -74,12 +75,19 @@ module.exports = {
         ],
         dest: './public/css'
     },
+     // ---------------------------------------------- es6
+     es6: {
+        src: [
+            './src/js/main.js', //include this file
+            '!js/vendors/**/*.js' //exclude this file
+        ],
+        dest: './dist/'
+    },
     // ---------------------------------------------- typescript
     typescript: {
         src: [
             './src/typescript/main.ts'
         ],
-        outputName: 'custom.js',
         dest: './dist/',
         opts: {
             noImplicitAny: true

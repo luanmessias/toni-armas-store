@@ -1,0 +1,127 @@
+#cabecalho {
+
+  .conteiner {
+    @include remove-shadow;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: inherit;
+    background-color: #FFF;
+    padding: 0px;
+  }
+
+  .menu_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: $res-wrapper;
+    margin: 0px auto;
+  }
+
+  .menu {
+    background-color: #FFF;
+    box-sizing: border-box;
+    height: auto;
+    margin: 0px;
+    font-family: $second-font;
+    color: $color-gray-dark;
+    font-weight: 500;
+    padding: 5px;
+
+    .nivel-um {
+      li {
+        border: 0px;
+        padding: 5px 10px;
+        margin: 0;
+        background-color: transparent;
+
+        a {
+          strong {
+            font-family: $first-font;
+            color: $color-gray-dark;
+            font-weight: 500;
+            transition: all 0.3s;
+            font-size: 16px;
+          }
+
+          i {
+            background-color: inherit;
+            margin-left: 0px;
+            position: relative;
+            bottom: 2px;
+            margin-left: 2px;
+            &:before {
+              color: $color-gray-dark;
+              font-size: 15px;
+              transition: all .3s;
+            }
+          }
+        }
+
+        &.active,
+        &:hover {
+          a {
+            strong {
+              font-family: $first-font;
+              color: $color-orange;
+            }
+            i {
+              &:before {
+                color: $color-orange;
+                
+              }
+            }
+          }
+        }
+
+        &:hover {
+          .nivel-dois {
+            visibility: visible;
+            opacity: 1;
+            transform: translateY(0px);
+          }
+        }
+      }
+
+     
+    }
+
+    .nivel-dois {
+      @include remove-shadow;
+      background-color: $color-orange;
+      padding: 0;
+      display: inherit;
+      visibility: hidden;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all .3s;
+      li {
+        transition: all .3s;
+        padding: 5px 10px;
+        a {
+          font-family: $first-font;
+          color: #FFF;
+          font-size: 14px;
+        }
+
+        &:hover {
+          background-color: $color-orange-light;
+        }
+      }
+    }
+  }
+
+  .logo {
+    width: 131px;
+    transition: all 0.3s;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

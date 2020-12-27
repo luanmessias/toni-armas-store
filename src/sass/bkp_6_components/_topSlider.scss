@@ -1,0 +1,174 @@
+.topSlider {
+    width: 100%;
+    height: 100%;
+    background-color: #141228;
+    overflow: hidden;
+
+    .owl-carousel,
+    .owl-stage-outer,
+    .owl-stage,
+    .owl-item {
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .owl-item.active {
+        @include animate(fadeIn, 0s);
+        z-index: 1;
+        
+        .fogaca,
+        .alexandre,
+        .show {
+            @include e('about') {
+                @include animate(fadeInLeft, 0s);
+            }
+
+            @include e('name') {
+                @include animate(fadeInLeft, .3s);
+            }
+
+            .timer {
+                @include animate(fadeInLeft, .6s);
+            }
+
+            @include e('slogan') {
+                @include animate(fadeInUp, .9s);
+            }
+
+            @include e('photo') {
+                @include animate(fadeInRight, .3s);
+            }
+        }
+    }
+
+    &.owl-theme .owl-nav+.owl-dots {
+        @include flexbox(column, nowrap, center, center, center);
+        @include animate(fadeInRight, 1.5s);
+
+        &.inactive{
+            @include animate(fadeOutRight, 0s);
+        }
+
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100%;
+        padding: 0px 10px;
+        margin: 0;
+
+        .owl-dot {
+            @include flexbox(column, nowrap, center, center, center);
+            width: 30px;
+            height: 30px;
+
+            span {
+                @include box-shadow(1px, 1px, 5px, #575757);
+                @include transition;
+                width: 8px;
+                height: 8px;
+                background: #6d6d6d;
+            }
+
+            &.active {
+                span {
+                    width: 15px;
+                    height: 15px;
+                    background: #FFF;
+                }
+            }
+        }
+
+
+
+    }
+
+    @include e('item') {
+        @include box-sizing;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        overflow: hidden;
+        padding-top: 150px;
+
+        @media #{$break-up},
+        #{$wrap-up} {
+            padding-top: 150px;
+            height: 768px;
+        }
+
+        @media #{$break-down} {
+            padding-top: 80px;
+        }
+
+        @include res-max(350px) {
+            height: 525px;
+        }
+
+        @include res-between(351px, 450px) {
+            height: 526px;
+        }
+
+        @include res-between(451px, 550px) {
+            height: 526px;
+        }
+
+        @include res-between(551px, 650px) {
+            height: 535px;
+        }
+
+        @include res-between(651px, 750px) {
+            height: 546px;
+        }
+
+        @include res-between(751px, 950px) {
+            height: 552px;
+        }
+
+        @include res-between(951px, 1000px) {
+            height: 600px;
+        }
+
+
+        &:before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            -webkit-animation: bannerIn 50s ease-in infinite;
+            animation: bannerIn 50s ease-in infinite;
+            transition: all .5s ease-in-out;
+            overflow: hidden;
+            z-index: -1;
+        }
+
+        .wrapper {
+            width: 100%;
+            position: relative;
+
+            @media #{$wrap-up} {
+                height: 100%;
+            }
+
+            @media #{$break-down},
+            #{$wrap-down} {
+                @include flexbox(column, nowrap, flex-start, flex-start, flex-start);
+                height: auto;
+            }
+
+        }
+
+    }
+
+    .wrapper {
+        @include box-sizing;
+        overflow: hidden;
+        height: 100%;
+        margin: 0px auto;
+    }
+
+}

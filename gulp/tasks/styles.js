@@ -12,7 +12,7 @@ module.exports = function(gulp, plugins) {
     gulp.src(config.styles.src)
         .pipe(plugins.sourcemaps.init())
         .pipe(plugins.minifyCss())
-        .pipe(plugins.rename(config.sass.outputName))
+        .pipe(plugins.rename(config.rename.outputNameCss))
         .pipe(plugins.rename(config.rename.min))
         .pipe(plugins.sourcemaps.write('.'))
         .pipe(gulp.dest(config.styles.dest));

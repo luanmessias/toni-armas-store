@@ -3,16 +3,16 @@
 // Description: deletes dist folder
 // npm install --save-del del gulp-load-plugins
 // =========================================================
-var config              = require('../config.js'),
-    del                 = require('del');
+var config = require('../config.js'),
+    clean = require('gulp-clean');
 
-module.exports = function(gulp, plugins) {
+module.exports = function (gulp, plugins) {
     return function (cb) {
-    var stream = 
-// -------------------------------------------- Start Task
-        // del(config.clean.folders, cb);
-        del('./dist/', cb);
-// ---------------------------------------------- End Task
-    return stream;
+        var stream =
+            // -------------------------------------------- Start Task
+            gulp.src('./dist/', { read: false })
+                .pipe(clean());
+        // ---------------------------------------------- End Task
+        return stream;
     };
 };

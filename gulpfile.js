@@ -22,6 +22,7 @@ gulp.task('sass',       getTask('sass'));
 gulp.task('scripts',    getTask('scripts'));
 gulp.task('styles',     getTask('styles'));
 gulp.task('ts',         getTask('typescript'));
+gulp.task('es6',        getTask('es6'));
 gulp.task('new-task',   getTask('new-task'));
 gulp.task('sync',       getTask('browsersync'));
 gulp.task('clean',      getTask('clean'));
@@ -31,17 +32,9 @@ gulp.task('html',       getTask('html'));
 gulp.task('watch',      getTask('watch'));
 gulp.task('upload',     getTask('s3_upload'));
 
-// --------------------------------------- Default Gulp Task
-gulp.task('default',gulp.series(
-		gulp.parallel('ts', 'sass'),
-		gulp.parallel('scripts', 'styles'),
-		gulp.parallel('upload', 'clean'),
-	)
-);
-
 // --------------------------------------- Compile Gulp Task
 gulp.task('default', gulp.series(
-	gulp.parallel('ts', 'sass'),
+	gulp.parallel('es6', 'sass'),
 	gulp.parallel('scripts', 'styles'),
 	gulp.parallel('clean')
 ));

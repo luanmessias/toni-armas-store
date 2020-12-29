@@ -1,4 +1,9 @@
-const createHeader = () => {
+// Gobal vars
+const pageW = window.innerWidth;
+const mobResMax = 767;
+
+
+const createHeaderDesktop = () => {
   // New Html Tgas
   const menuContainerHtml = '<div class="menu_container"></div>';
   const IconLogin = '<i class="fas fa-sign-in-alt"></i>'
@@ -31,6 +36,37 @@ const createHeader = () => {
   });
 }
 
+const createHeaderMobile = () => {
+  //New Html Tags
+  const MobMenu = $('<li class="mobMenu"><i class="fas fa-bars"></i><i class="fas fa-times"></i></li>')
+  const mobSearch = $('<li class="mobSearch"><i class="fas fa-search-plus"></i><i class="fas fa-search-minus"></i></li>')
+  
+  //Already existing tag selector
+  const mobileBar = $('.atalhos-mobile > ul');
+  const mobMenuButton = $('.atalho-menu');
+  const mobSearchBar = $('.busca');
+
+  // Actions
+  if(pageW <= mobResMax) {
+    mobileBar.prepend(MobMenu);
+    mobileBar.append(mobSearch);
+
+    $('.mobMenu').click(function() {
+      $(this).toggleClass('active');
+      mobMenuButton.click();
+    });
+
+    $('.mobSearch').click(function() {
+      $(this).toggleClass('active');
+      $('.logo').toggleClass('active');
+      mobSearchBar.toggleClass('active');
+    });
+
+    $('.nivel-um .com-filho').click(function() {
+      $(this).toggleClass('open');
+    })
+  }
+}
 
 const setSelectedCategory = () => {
   const bodyClasses = $('body').attr('class').trim().split(' ')
@@ -57,7 +93,8 @@ const TEMP__incrementSubMenu = () => {
 
 //Ready actions
 jQuery(document).ready(function () {
-  createHeader()
+  createHeaderDesktop()
+  createHeaderMobile()
   setSelectedCategory()
   //TEMP__incrementSubMenu()
 });

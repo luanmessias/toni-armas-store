@@ -15,21 +15,22 @@
     padding: 0px;
     border: 0px;
 
-    > ul {
+    >ul {
       @include box-sizing;
       box-sizing: border-box;
       padding: 10px;
       border-left: 1px solid $color-gray-light;
       max-height: 232px;
 
-      > li {
+      >li {
         display: flex;
         justify-content: flex-end;
         align-items: center;
         flex-direction: row-reverse;
         box-sizing: border-box;
         background-color: #FFF;
-        & + li {
+
+        &+li {
           margin-top: 10px;
         }
 
@@ -79,7 +80,7 @@
         background: #555;
       }
     }
-    
+
     .carrinho-rodape {
       display: flex;
       justify-content: space-between;
@@ -104,10 +105,12 @@
         font-size: 0px;
         height: 70px;
         width: 70px;
+
         i {
           font-size: 40px;
           margin: 0px;
         }
+
         &:hover {
           background-color: $color-orange-dark;
         }
@@ -116,12 +119,12 @@
       .carrinho-info {
         margin-left: 10px;
 
-        > i {
+        >i {
           font-family: $second-font;
           font-size: 17px;
           color: $color-gray-light;
           font-style: inherit;
-          
+
         }
 
         .carrino-total {
@@ -147,6 +150,45 @@
   }
 
   // BAR TOP AREA
+  .acoes-conta {
+    li {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 0;
+      transition: all .3s;
+      height: 35px;
+      padding: 0px 10px;
+
+      i {
+        background-color: transparent;
+        color: $color-gray;
+        font-size: 16px;
+        margin-right: 3px;
+        transition: all .3s;
+      }
+
+      a {
+        color: $color-gray;
+        font-size: 14px;
+        font-family: $first-font;
+        transition: all .3s;
+      }
+
+      &:hover {
+        background-color: $color-gray-dark;
+
+        a,
+        i {
+          text-decoration: none;
+          color: $color-gray-light;
+        }
+
+      }
+    }
+
+  }
+
   .row-fluid {
     background-color: #F6F6F6;
     display: flex;
@@ -265,6 +307,7 @@
 
     &:hover {
       background-color: $color-gray;
+
       .carrinho-interno {
         transform: translateY(0px);
         opacity: 1;
@@ -438,18 +481,21 @@
           }
         }
 
-        &.active,
-        &:hover {
-          a {
-            strong {
-              font-family: $first-font;
-              color: $color-orange;
-            }
+        @media screen and #{$onlyDesktop} {
 
-            i {
-              &:before {
+          &.active,
+          &:hover {
+            a {
+              strong {
+                font-family: $first-font;
                 color: $color-orange;
+              }
 
+              i {
+                &:before {
+                  color: $color-orange;
+
+                }
               }
             }
           }
@@ -505,6 +551,237 @@
 
     &:hover {
       transform: scale(1.2);
+    }
+  }
+
+  //mobile
+  @media screen and #{$onlyMobile} {
+    padding-top: 50px;
+
+    .row-fluid {
+      background-color: #FFF;
+    }
+
+    .busca {
+      position: fixed;
+      box-sizing: border-box;
+      padding: 10px;
+      border-radius: 0px;
+      width: 100%;
+      background-color: $color-orange;
+      top: 0px;
+      left: 0px;
+      z-index: 999;
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(60px);
+      transition: all .3s;
+
+      &.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(50px);
+      }
+
+      #auto-complete {
+        max-width: inherit;
+      }
+    }
+
+    .atalhos-mobile {
+      box-sizing: border-box;
+      background-color: #FFF;
+      border-bottom: 1px solid $color-gray-light;
+
+      >ul {
+        >li {
+          background-color: inherit;
+          border: 0px;
+          margin: 0px;
+
+          &.vazia {
+            display: none;
+          }
+
+          a {
+            @include remove-shadow;
+            color: $color-gray-dark;
+            text-shadow: none;
+          }
+
+          &.mobMenu+li,
+          &.fundo-principal+li {
+            display: none;
+          }
+        }
+      }
+
+      .mobMenu,
+      .mobSearch {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 50px;
+        height: 50px;
+        transition: all .3s;
+
+        >i {
+          position: absolute;
+          font-size: 25px;
+          transition: all .3s;
+          color: $color-gray-dark;
+
+          &:first-of-type {
+            opacity: 1;
+            visibility: visible;
+
+            &+i {
+              opacity: 0;
+              visibility: hidden;
+            }
+          }
+        }
+
+
+
+        &.active {
+          background-color: $color-orange;
+
+          >i {
+            color: #FFF;
+
+            &:first-of-type {
+              opacity: 0;
+              visibility: hidden;
+
+              &+i {
+                opacity: 1;
+                visibility: visible;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .nivel-um {
+      display: block;
+      position: fixed;
+      z-index: 9999;
+      width: auto;
+      min-width: 230px;
+      left: 0px;
+      top: 50px;
+      height: calc(100% - 50px);
+      background-color: #FFF;
+      border: 0px;
+      border-right: 1px solid $color-gray-light;
+      margin: 0px;
+      padding: 0px;
+      opacity: 0;
+      transform: translateX(-100%);
+      transition: all .3s;
+
+      &.active {
+        opacity: 1;
+        transform: translateX(0%);
+      }
+
+      >li {
+        box-sizing: border-box;
+        padding: 10px;
+        border: 0px;
+        transition: all .3s;
+
+        >a {
+          color: $color-gray;
+
+          &.active {
+            color: $color-gray;
+          }
+        }
+
+        
+
+        &.com-filho {
+          position: relative;
+
+          &:after {
+            @include set-icon($fa-var-chevron-right);
+            position: absolute;
+            right: 15px;
+            top: 15px;
+            transform: rotate(0deg);
+            transition: all .3s;
+          }
+
+          &.open {
+            background-color: $color-orange;
+  
+            a {
+              strong {
+                color: #FFF;
+              }
+            }
+  
+            &:after {
+              color: #FFF;
+              transform: rotate(90deg);
+            }
+
+            .nivel-dois {
+              opacity: 1;
+              height: auto;
+              overflow: visible;
+            }
+          }
+        }
+
+        .nivel-dois {
+          opacity: 0;
+          height: 0;
+          overflow: hidden;
+          transition: all .3s;
+        }
+      }
+    }
+
+    .atalho-menu {
+      display: none !important;
+    }
+
+    .bem-vindo {
+      display: none;
+    }
+
+    .inferior {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .busca-mobile {
+        background-color: #FFF;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .logo {
+          margin: 0px;
+          position: fixed;
+          top: -1px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 9999;
+          transition: all .3s;
+
+          &.active {
+            width: 95px;
+            top: -15px;
+          }
+        }
+      }
     }
   }
 }

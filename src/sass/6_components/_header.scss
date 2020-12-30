@@ -7,11 +7,14 @@
 }
 
 #cabecalho {
-  top: 0px;
-  position: fixed;
-  z-index: 9999;
-  width: 100%;
   transition: all .3s;
+
+  @media screen and #{$onlyDesktop} {
+    top: 0px;
+    position: fixed;
+    z-index: 9999;
+    width: 100%;
+  }
 
   .carrinho-interno {
     @include remove-shadow;
@@ -453,12 +456,16 @@
     align-items: center;
     background-color: #FFF;
     box-sizing: border-box;
-    height: 130px;
     margin: 0px;
     font-family: $second-font;
     color: $color-gray-dark;
     font-weight: 500;
     padding: 5px;
+    transition: all .3s;
+
+    @media screen and #{$onlyDesktop} {
+      height: 130px;
+    }
 
     .nivel-um {
       li {
@@ -591,7 +598,7 @@
           width: 100px;
           height: auto;
         }
-    
+
       }
     }
   }
@@ -812,16 +819,12 @@
         .logo {
           margin: 0px;
           position: fixed;
-          top: -1px;
+          width: 95px;
+          top: 3px;
           left: 50%;
           transform: translateX(-50%);
           z-index: 9999;
           transition: all .3s;
-
-          &.active {
-            width: 95px;
-            top: -15px;
-          }
         }
       }
     }

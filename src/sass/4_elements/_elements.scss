@@ -1,10 +1,15 @@
 body {
     font-family: $system-font;
     background-color: #FFF;
-    padding-top: 157px;
+
+    @media screen and #{$onlyDesktop} {
+        padding-top: 157px;
+    }
 }
 
-a{
+a {
     text-decoration: none;
 }
-
+.row-fluid [class*="span"] {
+    min-height: auto;
+}

@@ -2,7 +2,16 @@
   display: none;
 }
 
+#barraTopo {
+  display: none !important;
+}
+
 #cabecalho {
+  top: 0px;
+  position: fixed;
+  z-index: 9999;
+  width: 100%;
+  transition: all .3s;
 
   .carrinho-interno {
     @include remove-shadow;
@@ -149,7 +158,6 @@
     }
   }
 
-  // BAR TOP AREA
   .acoes-conta {
     li {
       display: flex;
@@ -421,7 +429,6 @@
     }
   }
 
-  // LOGO + MENU AREA
   .conteiner {
     @include remove-shadow;
     box-sizing: border-box;
@@ -441,9 +448,12 @@
   }
 
   .menu {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     background-color: #FFF;
     box-sizing: border-box;
-    height: auto;
+    height: 130px;
     margin: 0px;
     font-family: $second-font;
     color: $color-gray-dark;
@@ -541,16 +551,48 @@
   }
 
   .logo {
-    width: 131px;
     transition: all 0.3s;
 
-    img {
-      width: 100%;
+    a {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      width: auto;
       height: auto;
+    }
+
+    img {
+      position: inherit;
+      width: 135px;
+      height: auto;
+      transition: all 0.3s;
     }
 
     &:hover {
       transform: scale(1.2);
+    }
+  }
+
+  // FIXHEADER
+  @media screen and #{$onlyDesktop} {
+    &.fixed {
+      &.reduce {
+        top: -40px;
+      }
+
+      .menu {
+        height: auto;
+        border-bottom: 1px solid $color-gray-light;
+      }
+
+      .logo {
+        img {
+          position: inherit;
+          width: 100px;
+          height: auto;
+        }
+    
+      }
     }
   }
 
@@ -701,7 +743,7 @@
           }
         }
 
-        
+
 
         &.com-filho {
           position: relative;
@@ -717,13 +759,13 @@
 
           &.open {
             background-color: $color-orange;
-  
+
             a {
               strong {
                 color: #FFF;
               }
             }
-  
+
             &:after {
               color: #FFF;
               transform: rotate(90deg);

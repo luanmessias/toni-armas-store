@@ -73,7 +73,8 @@ $card_color_four: #21ac65;
 
 //SETTINGS - MEDIAQUERIES
 //=======================================================================
-$break: '767px';
+$breakDown: '767px';
+$breakUp: '768px';
 
 $mobileS: '320px';
 $mobileM: '375px';
@@ -83,6 +84,6 @@ $laptop: '1024px';
 $laptopL: '1440px';
 $desktop: '2560px';
 
-$onlyMobile: '(max-width: #{$break})';
-$onlyDesktop: '(min-width: #{$break + 1})'
+$onlyMobile: '(max-width: #{$breakDown})';
+$onlyDesktop: '(min-width: #{$breakUp})'
 

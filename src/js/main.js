@@ -11,6 +11,8 @@ const createHeaderDesktop = () => {
   const MiniCartCont = '<div class="name-prod"></div>'
 
   // Selectors for tags that already exists 
+  const fullHeader = $('#cabecalho');
+  const fixedHeader = $('#barraTopo');
   const mainHeader = $('.menu.superior');
   const mainMenu = $('.menu.superior .nivel-um');
   const logo = $('#cabecalho .logo');
@@ -34,6 +36,27 @@ const createHeaderDesktop = () => {
   MiniCartProd.each(function () {
     $('.preco-produto', this).prepend($('.nome-produto', this));
   });
+
+  if (pageW >= mobResMax) {
+    var lastScrollTop = 0;
+
+    $(window).scroll(function (event) {
+      var st = jQuery(this).scrollTop();
+      if (st > fullHeader.height()) {
+        fullHeader.addClass('fixed');
+        if (st > lastScrollTop) {
+          fullHeader.addClass('reduce');
+        } else if (st < lastScrollTop) {
+          fullHeader.removeClass('reduce');
+        }
+      } else if (st < lastScrollTop) {
+        fullHeader.removeClass('fixed');
+      };
+      lastScrollTop = st;
+    });
+
+  }
+
 }
 
 const createHeaderMobile = () => {

@@ -1,0 +1,159 @@
+#rodape {
+  background-color: $color-gray-dark;
+  
+
+  .sobre-loja-rodape,
+  .pagamento-selos {
+    display: none;
+  }
+
+  .institucional {
+    background-image: none;
+    padding-top: 50px;
+
+    .conteiner {
+      padding: 0px;
+
+      >.row-fluid,
+      >.row-fluid>div,
+      >.row-fluid>div>.row-fluid {
+        width: 100%;
+      }
+
+      >.row-fluid>div>.row-fluid {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        flex-wrap: wrap;
+
+        .titulo {
+          padding-top: 0px;
+          margin-bottom: 0px;
+        }
+        > div {
+          margin: 0px;
+          padding: 0px 15px;
+        }
+
+        .pagamento {
+          .gateways-rodape {
+            background: none;
+            border: 0px;
+            
+
+            > li {
+              background-color: #FFF;
+              border-radius: 3px;
+              padding: 3px;
+            }
+          }
+        }
+
+        .selos {
+          ul {
+            li {
+              background-color: #FFF;
+              border-radius: 5px;
+              padding: 5px;
+            }
+          }
+        }
+
+        .newsletter {
+          border: 0px;
+          background: transparent;
+          .interno {
+            padding: 0px;
+          }
+
+          .titulo {
+            i {
+              float: none;
+              margin-right: 5px;
+            }
+          }
+
+          .newsletter-cadastro {
+            input {
+              box-sizing: border-box;
+              background-color: #2E2D32;
+              color: $color-gray-light;
+              border: 0x;
+              height: 40px;
+              padding: 5px 10px;
+            }
+            button {
+              width: 40px;
+              height: 40px;
+              background-color: $color-orange;
+              border-radius: 0px 5px 5px 0px;
+            }
+          }
+        }
+ 
+        .links-rodape {
+          ul {
+            list-style: none;
+          }
+          li{
+            list-style: none;
+          }
+          a {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            font-family: $second-font;
+            color: $color-gray-light;
+            font-size: 14px;
+            text-transform: uppercase;
+
+            &:before {
+              @include set-icon($fa-var-dot-circle);
+              color: $color-gray-light;
+              font-size: 7px;
+              margin-right: 4px;
+            }
+
+            &:hover {
+              text-decoration: none;
+            }
+           
+          }
+        }
+
+        .logo_footer {
+          width: auto;
+          height: 75px;
+          margin-right: 20px;
+        }
+      }
+    }
+  }
+
+  > div:last-of-type {
+    border: 0px !important;
+
+    > .conteiner {
+      padding: 0px;
+      width: 100%;
+      max-width: inherit;
+      .row-fluid{
+        width: 100%;
+        > div {
+          font-family: $second-font;
+          font-size: 18px;
+          color: $color-gray-light;
+
+          &:first-of-type {
+            padding: 10px 0px;
+            background-color: #10100F;
+          }
+
+          & + div {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

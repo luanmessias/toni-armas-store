@@ -63,29 +63,29 @@ const createHeaderMobile = () => {
   //New Html Tags
   const MobMenu = $('<li class="mobMenu"><i class="fas fa-bars"></i><i class="fas fa-times"></i></li>')
   const mobSearch = $('<li class="mobSearch"><i class="fas fa-search-plus"></i><i class="fas fa-search-minus"></i></li>')
-  
+
   //Already existing tag selector
   const mobileBar = $('.atalhos-mobile > ul');
   const mobMenuButton = $('.atalho-menu');
   const mobSearchBar = $('.busca');
 
   // Actions
-  if(pageW <= mobResMax) {
+  if (pageW <= mobResMax) {
     mobileBar.prepend(MobMenu);
     mobileBar.append(mobSearch);
 
-    $('.mobMenu').click(function() {
+    $('.mobMenu').click(function () {
       $(this).toggleClass('active');
       mobMenuButton.click();
     });
 
-    $('.mobSearch').click(function() {
+    $('.mobSearch').click(function () {
       $(this).toggleClass('active');
       $('.logo').toggleClass('active');
       mobSearchBar.toggleClass('active');
     });
 
-    $('.nivel-um .com-filho').click(function() {
+    $('.nivel-um .com-filho').click(function () {
       $(this).toggleClass('open');
     })
   }
@@ -95,7 +95,7 @@ const setSelectedCategory = () => {
   const bodyClasses = $('body').attr('class').trim().split(' ')
   const getClass = bodyClasses.find(bc => bc.includes('categoria-'))
 
-  if(getClass !== undefined) {
+  if (getClass !== undefined) {
     const categoryId = $(`.categoria-id-${getClass.split('categoria-').pop()}`)
     categoryId.addClass('active')
   }
@@ -121,6 +121,27 @@ const fixHomeMidBanner = () => {
   $('.vitrine-mas-vendido').before(midBanner);
 }
 
+const removeCpf = () => {
+  $('#rodape > div .conteiner p[style="margin-bottom: 0;"]').html(
+    $('#rodape > div .conteiner p[style="margin-bottom: 0;"]')
+    .html()
+    .replace(' - CPF: 215.068.468-31', '')
+  )
+}
+
+const createFooter = () => {
+  const logoWhite = '<img class="logo_footer" src="https://loja-toni-armas.s3.amazonaws.com/img/logo_white.png" />';
+  const contBlocks = $('#rodape .institucional .conteiner > .row-fluid > div > .row-fluid');
+  const payments = $('#rodape .pagamento');
+  const seals = $('#rodape .selos');
+  const newsletter = $('.componente.newsletter');
+
+  contBlocks
+    .prepend(logoWhite)
+    .append(payments)
+    .append(seals)
+    .append(newsletter)
+}
 
 //Ready actions
 jQuery(document).ready(function () {
@@ -128,6 +149,8 @@ jQuery(document).ready(function () {
   createHeaderMobile()
   setSelectedCategory()
   fixHomeMidBanner()
+  createFooter()
+  removeCpf()
   //TEMP__incrementSubMenu()
 });
 

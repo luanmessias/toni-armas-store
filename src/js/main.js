@@ -113,12 +113,21 @@ const TEMP__incrementSubMenu = () => {
   }
 }
 
+const fixHomeMidBanner = () => {
+  const mainBanner = $('#cabecalho + .secao-banners .banner.cheio');
+  const midBanner = $('#cabecalho + .secao-banners .banner.cheio + .banner');
+
+
+  $('.vitrine-mas-vendido').before(midBanner);
+}
+
 
 //Ready actions
 jQuery(document).ready(function () {
   createHeaderDesktop()
   createHeaderMobile()
   setSelectedCategory()
+  fixHomeMidBanner()
   //TEMP__incrementSubMenu()
 });
 

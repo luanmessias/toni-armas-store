@@ -45,9 +45,11 @@ gulp.task('upload', gulp.series(
 ));
 
 
-gulp.task('build', gulp.series('clean',
-	gulp.parallel('scripts', 'styles', 'html'), 'vendors', 'moveDist')
-);
+gulp.task('build', gulp.series(
+	gulp.parallel('es6', 'sass'),
+	gulp.parallel('scripts', 'styles'),
+	gulp.parallel('clean', 'upload')
+));
 
 
 // =========================================================

@@ -3,10 +3,69 @@
     .coluna {
       display: none;
     }
+
     .conteudo {
       padding: 0px;
       margin: 0px;
       width: 100%;
     }
+
+    >.conteiner {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      box-sizing: border-box;
+      flex-direction: column;
+      width: 100%;
+      box-sizing: border-box;
+      padding: 0px;
+      max-width: inherit;
+
+      >div {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        box-sizing: border-box;
+        flex-direction: column;
+        padding: 0px;
+        max-width: inherit;
+
+      }
+    }
+
+    #listagemProdutos {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      box-sizing: border-box;
+      flex-direction: column;
+
+      @media screen and #{$onlyMobile} {
+        padding: 10px;
+      }
+
+      @media (min-width:#{$mobileM}) and (max-width:#{$tablet}) {
+        .listagem-linha {
+          > ul {
+            display: flex;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            > li {
+              width: calc((100% / 2) - 10px);
+              margin: 5px;
+            }
+          }
+        }
+      }
+
+      > ul {
+        max-width: $res-wrapper;
+      }
+
+      > .banner {
+        margin-top: 40px;
+      }
+    }
+
   }
 }

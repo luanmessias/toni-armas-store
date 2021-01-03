@@ -143,56 +143,68 @@ const createFooter = () => {
     .append(newsletter)
 }
 
+
 const youtubeLastestVideos = () => {
-  const baseHtml =`
-    <div class="last_yt_videos">
-    <div class="titulo-categoria">
-      <strong>ÚLTIMOS VÍDEOS DO CANAL</strong>
-    </div>
-      <div class="content">
-        <div class="video main">
-          <a 
-            href="https://www.youtube.com/watch?v=5DLGYYRnaFo"
-            target="_blank"
-            class="thumb"
-            style="background-image: url(https://i.ytimg.com/vi_webp/5DLGYYRnaFo/maxresdefault.webp)"></a>
-          <h2 class="video_title">PISTOLA TANFOGLIO - 1911 EM POLÍMERO NO CALIBRE 9MM</h2>
-          <div class="desc">por <strong>Toni Armas</strong> - 2 de jan. de 2021</div>
-        </div>
+  const apiKey = 'AIzaSyDQ8lZ0RtNipoC31pIaryrJBjtbFidbuxQ'
+  const maxResults = 3
+  const channelId = 'UCdXC0S2gfKYY7DI2NZJuzTA'
+  const videosUrl = `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${channelId}&maxResults=${maxResults}&key=${apiKey}`
 
-        <div class="side">
-          <div class="video">
-            <a
-              href="https://www.youtube.com/watch?v=tGzeGQhCDfE"
-              target="_blank"
-              class="thumb"
-              style="background-image: url(https://i.ytimg.com/vi_webp/tGzeGQhCDfE/maxresdefault.webp)"></a>
-            <h2 class="video_title">GIRSAN MC9 - EXPLICAÇÃO E DISPAROS - GLOCK TURCA ??</h2>
-            <div class="desc">por <strong>Toni Armas</strong> - 28 de dez. de 2020</div>
-          </div>
+  fetch(videosUrl)
+  .then((resp) => resp.json())
+  .then(function(data) {
 
-          <div class="video">
-            <a
-              href="https://www.youtube.com/watch?v=swZbxFZg-pA"
-              target="_blank"
-              class="thumb"
-              style="background-image: url(https://i.ytimg.com/vi_webp/swZbxFZg-pA/maxresdefault.webp)"></a>
-            <h2 class="video_title">TORTURA - PISTOLA G2C vs MICRO PÓ INDUSTRIAL</h2>
-            <div class="desc">por <strong>Toni Armas</strong> - 2 de dez. de 2020</div>
-          </div>
+    const setFormattedDate = (givenDate) => {
+      const date = new Date(givenDate);
+      const currentMonth = date.toLocaleString('pt-BR', { month: 'long' });
+      const month = currentMonth.charAt(0).toUpperCase() + currentMonth.slice(1);
+      return `${date.getDate()} de ${month} de ${date.getFullYear()}`
+    }
+
+    const baseHtml = `
+      <div class="last_yt_videos">
+        <div class="titulo-categoria">
+          <strong>ÚLTIMOS VÍDEOS DO CANAL</strong>
         </div>
-      </div>
-      <div class="subscribe">
         <div class="content">
-          <a
-          href="https://www.youtube.com/channel/UCdXC0S2gfKYY7DI2NZJuzTA"
-          target="_blank"
-          class="">Inscreva-se no canal</a>
+          
+          <div class="video main">
+            <a href="https://www.youtube.com/watch?v=${data.items[0].id.videoId}" target="_blank" class="thumb"
+              style="background-image: url(https://i.ytimg.com/vi_webp/${data.items[0].id.videoId}/maxresdefault.webp)"></a>
+            <h2 class="video_title">${data.items[0].snippet.title}</h2>
+            <div class="desc">por <strong>Toni Armas</strong> - ${setFormattedDate(data.items[0].snippet.publishedAt)}</div>
           </div>
+
+          <div class="side">
+            
+            <div class="video">
+              <a href="https://www.youtube.com/watch?v=${data.items[1].id.videoId}" target="_blank" class="thumb"
+                style="background-image: url(https://i.ytimg.com/vi_webp/${data.items[1].id.videoId}/maxresdefault.webp)"></a>
+              <h2 class="video_title">${data.items[1].snippet.title}</h2>
+              <div class="desc">por <strong>Toni Armas</strong> - ${setFormattedDate(data.items[1].snippet.publishedAt)}</div>
+            </div>
+
+            <div class="video">
+              <a href="https://www.youtube.com/watch?v=${data.items[2].id.videoId}" target="_blank" class="thumb"
+                style="background-image: url(https://i.ytimg.com/vi_webp/${data.items[2].id.videoId}/maxresdefault.webp)"></a>
+              <h2 class="video_title">${data.items[2].snippet.title}</h2>
+              <div class="desc">por <strong>Toni Armas</strong> - ${setFormattedDate(data.items[2].snippet.publishedAt)}</div>
+            </div>
+
+          </div>
+        </div>
+        <div class="subscribe">
+          <div class="content">
+            <a href="https://www.youtube.com/channel/UCdXC0S2gfKYY7DI2NZJuzTA" target="_blank" class="">Inscreva-se no
+              canal</a>
+          </div>
+        </div>
       </div>
-    </div>
-  `
-  $('#corpo').append(baseHtml);
+    `;
+
+    $('#corpo').append(baseHtml);
+  });
+
 }
 
 //Ready actions

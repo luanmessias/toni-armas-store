@@ -143,12 +143,65 @@ const createFooter = () => {
     .append(newsletter)
 }
 
+const youtubeLastestVideos = () => {
+  const baseHtml =`
+    <div class="last_yt_videos">
+    <div class="titulo-categoria">
+      <strong>ÚLTIMOS VÍDEOS DO CANAL</strong>
+    </div>
+      <div class="content">
+        <div class="video main">
+          <a 
+            href="https://www.youtube.com/watch?v=5DLGYYRnaFo"
+            target="_blank"
+            class="thumb"
+            style="background-image: url(https://i.ytimg.com/vi_webp/5DLGYYRnaFo/maxresdefault.webp)"></a>
+          <h2 class="video_title">PISTOLA TANFOGLIO - 1911 EM POLÍMERO NO CALIBRE 9MM</h2>
+          <div class="desc">por <strong>Toni Armas</strong> - 2 de jan. de 2021</div>
+        </div>
+
+        <div class="side">
+          <div class="video">
+            <a
+              href="https://www.youtube.com/watch?v=tGzeGQhCDfE"
+              target="_blank"
+              class="thumb"
+              style="background-image: url(https://i.ytimg.com/vi_webp/tGzeGQhCDfE/maxresdefault.webp)"></a>
+            <h2 class="video_title">GIRSAN MC9 - EXPLICAÇÃO E DISPAROS - GLOCK TURCA ??</h2>
+            <div class="desc">por <strong>Toni Armas</strong> - 28 de dez. de 2020</div>
+          </div>
+
+          <div class="video">
+            <a
+              href="https://www.youtube.com/watch?v=swZbxFZg-pA"
+              target="_blank"
+              class="thumb"
+              style="background-image: url(https://i.ytimg.com/vi_webp/swZbxFZg-pA/maxresdefault.webp)"></a>
+            <h2 class="video_title">TORTURA - PISTOLA G2C vs MICRO PÓ INDUSTRIAL</h2>
+            <div class="desc">por <strong>Toni Armas</strong> - 2 de dez. de 2020</div>
+          </div>
+        </div>
+      </div>
+      <div class="subscribe">
+        <div class="content">
+          <a
+          href="https://www.youtube.com/channel/UCdXC0S2gfKYY7DI2NZJuzTA"
+          target="_blank"
+          class="">Inscreva-se no canal</a>
+          </div>
+      </div>
+    </div>
+  `
+  $('#corpo').append(baseHtml);
+}
+
 //Ready actions
 jQuery(document).ready(function () {
   createHeaderDesktop()
   createHeaderMobile()
   setSelectedCategory()
   fixHomeMidBanner()
+  youtubeLastestVideos()
   createFooter()
   removeCpf()
   //TEMP__incrementSubMenu()

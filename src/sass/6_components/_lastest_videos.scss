@@ -1,0 +1,183 @@
+.last_yt_videos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  margin: 30px 0px;
+
+  .titulo-categoria {
+    width: 100%;
+  }
+
+  .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: $res-wrapper;
+
+    @media screen and #{$onlyMobile} {
+      flex-direction: column;
+      padding: 10px;
+
+      .side {
+        box-sizing: border-box;
+        width: 100%;
+      }
+    }
+  }
+
+  .video {
+    width: 100%;
+    max-width: 350px;
+
+    >a {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+      height: 180px;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+      border-width: 0px;
+      border-color: $color-orange;
+      transition: all .3s;
+
+      &:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .7);
+        visibility: hidden;
+        opacity: 0;
+        transition: all .3s;
+      }
+
+      &:after {
+        @include set-icon($fa-var-youtube, 0px, 900, $youtube_color, 'true');
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden;
+        opacity: 0;
+        transition: all .3s;
+      }
+
+      &:hover {
+        text-decoration: none;
+        border-width: 5px;
+
+        &:before {
+          visibility: visible;
+          opacity: 1;
+        }
+
+        &:after {
+          visibility: visible;
+          opacity: 1;
+          font-size: 80px;
+        }
+
+      }
+    }
+
+    &+.video {
+      margin-top: 30px;
+    }
+
+    .video_title {
+      font-family: $second-font;
+      font-size: 24px;
+      color: $color-gray-dark;
+      line-height: 28px;
+    }
+
+    .desc {
+      font-family: $first-font;
+      font-size: 12px;
+      color: $color-gray;
+
+      strong {
+        color: $color-orange;
+      }
+    }
+
+
+    &.main {
+      max-width: 785px;
+
+      >a {
+        height: 483px;
+      }
+
+      .video_title {
+        font-size: 36px;
+        line-height: 32px;
+      }
+    }
+
+
+    @media screen and #{$onlyMobile} {
+
+      &,
+      &.main {
+        width: 100%;
+        max-width: inherit;
+        margin-top: 30px;
+
+        .video_title {
+          font-size: 24px;
+        }
+
+        >a {
+          height: 220px;
+        }
+      }
+    }
+  }
+
+  .subscribe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0px;
+
+    .content {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+
+    a {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $color-orange;
+      color: #FFF;
+      font-family: $third-font;
+      text-transform: uppercase;
+      padding: 5px 10px;
+      border-radius: 3px;
+      transition: all .3s;
+
+      &:before {
+        @include set-icon($fa-var-youtube, 20px, 900, #FFF, 'true');
+        margin-right: 5px;
+      }
+
+      &:hover {
+        text-decoration: none;
+        background-color: $youtube_color;
+      }
+    }
+  }
+}

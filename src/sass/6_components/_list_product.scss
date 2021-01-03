@@ -1,8 +1,15 @@
 #listagemProdutos {
+
   .listagem-item {
     @include remove-shadow;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex-wrap: nowrap;
     border: 1px solid $color-gray-light;
     padding: 0px;
+    height: 100%;
+
 
     .acoes-produto,
     .acoes-produto-responsiva {
@@ -32,6 +39,7 @@
       padding: 0px;
       margin: 0px;
       width: 100%;
+      margin-top: auto;
     }
 
     .nome-produto {

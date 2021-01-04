@@ -61,18 +61,26 @@ const createHeaderDesktop = () => {
 
 const createHeaderMobile = () => {
   //New Html Tags
-  const MobMenu = $('<li class="mobMenu"><i class="fas fa-bars"></i><i class="fas fa-times"></i></li>')
+  const BtMobMenu = $('<li class="mobMenu"><i class="fas fa-bars"></i><i class="fas fa-times"></i></li>')
   const mobSearch = $('<li class="mobSearch"><i class="fas fa-search-plus"></i><i class="fas fa-search-minus"></i></li>')
+  const mobAcoesConta = $('<li class="mobAcoesConta"></li>');
 
   //Already existing tag selector
   const mobileBar = $('.atalhos-mobile > ul');
   const mobMenuButton = $('.atalho-menu');
   const mobSearchBar = $('.busca');
+  const acoesConta = $('#cabecalho .acoes-conta');
+  const mobMenu = $('#cabecalho .nivel-um');
+
 
   // Actions
   if (pageW <= mobResMax) {
-    mobileBar.prepend(MobMenu);
+    mobileBar.prepend(BtMobMenu);
     mobileBar.append(mobSearch);
+    mobMenu.append(mobAcoesConta);
+    mobAcoesConta.append(acoesConta);
+    
+
 
     $('.mobMenu').click(function () {
       $(this).toggleClass('active');

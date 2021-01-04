@@ -792,7 +792,48 @@
           overflow: hidden;
           transition: all .3s;
         }
+
+        &.mobAcoesConta {
+          position: absolute;
+          bottom: 0px;
+          width: 100%;
+          padding: 0px;
+          .acoes-conta {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+
+           
+            > li {
+              display: flex !important;
+              justify-content: flex-start;
+              align-items: center;
+              width: 100%;
+              padding: 10px;
+              box-sizing: border-box;
+              min-width: inherit;
+              max-width: inherit;
+
+              i {
+                display: inline-block;
+                margin-right: 10px;
+                color: $color-gray-dark;
+              }
+
+              a {
+                width: auto;
+                border: none;
+                padding: 0px;
+                margin: inherit;
+                color: $color-gray-dark;
+              }
+  
+            }
+
+          }
+        }
       }
+
     }
 
     .atalho-menu {

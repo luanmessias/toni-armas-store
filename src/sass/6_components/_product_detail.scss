@@ -1,0 +1,119 @@
+.pagina-produto #corpo .secao-principal {
+  @media screen and #{$onlyDesktop} {
+    .esquerda {
+      display: none;
+    }
+ 
+    > .produto {
+      width: 100%;
+      margin: 0px;
+    }
+
+    .breadcrumbs {
+      border-top: 0px;
+      ul {
+        li {
+          border: 0px;
+          a {
+            padding: 0px;
+          }
+          & + li {
+            &:before {
+              content: "/";
+              margin: 0px 5px;
+            }
+          }
+        }
+      }
+    }
+
+    .info-principal-produto {
+      .nome-produto {
+        font-size: 36px;
+      }
+
+      .codigo-produto {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        > * {
+          margin-top: 0px;
+          & + * {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+
+    .preco-produto {
+
+      .preco-parcela {
+        font-size: 20px;
+        strong {
+          font-size: 24px;
+          & + strong {
+            font-size: 30px;
+          }
+        }
+      }
+
+      .preco-promocional {
+        display: none;
+      }
+    }
+
+    .comprar {
+
+      .botao-comprar {
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        background-image: none;
+        font-family: $second-font;
+        font-weight: 600;
+        text-transform: uppercase;
+        padding: 0px;
+        height: 55px;
+        border: 0px;
+        padding-right: 10px;
+
+        i {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 55px;
+          height: 55px;
+          background-color: $color-gray-dark;
+          margin-right: 10px;
+        }
+      }
+      
+      .disponibilidade-produto {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        box-sizing: border-box;
+        background-color: $color-gray-light;
+        font-family: $second-font;
+        color: #FFF;
+        text-align: left;
+        margin-top: 10px;
+        width: fit-content;
+        font-size: 14px;
+        padding-left: 10px;
+
+        b {
+          background-color: $color-gray;
+          color: #FFF;
+          padding: 5px 10px;
+          height: 100%;
+          display: block;
+          margin-left: 10px;
+        }
+      }
+    }
+    
+  } 
+}

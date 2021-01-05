@@ -215,6 +215,17 @@ const youtubeLastestVideos = () => {
 
 }
 
+const createProductDetail = () => {
+  // new tags
+
+  //Existing tags
+  const breadcrumb = $('.info-principal-produto .breadcrumbs');
+  const productMainBloc = $('.pagina-produto .secao-principal');
+
+  //Move elements
+  productMainBloc.prepend(breadcrumb)
+}
+
 //Ready actions
 jQuery(document).ready(function () {
   createHeaderDesktop()
@@ -224,7 +235,11 @@ jQuery(document).ready(function () {
   youtubeLastestVideos()
   createFooter()
   removeCpf()
-  //TEMP__incrementSubMenu()
+  
+
+  if($('body').hasClass('pagina-produto')) {
+    createProductDetail()
+  }
 });
 
 //Load actions

@@ -1,0 +1,9 @@
+.pagina-categoria {
+  .listagem-linha {
+    .row-fluid {
+      > li {
+        width: calc((100% / 3) - 10px);
+      }
+    }
+  }
+}

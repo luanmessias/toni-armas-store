@@ -10,6 +10,16 @@
     padding: 0px;
     height: 100%;
 
+    .bandeiras-produto{
+      span {
+        @include remove-shadow;
+        border: 0;
+        background-color: $color-orange;
+        font-family: $third-font;
+        color: #FFF;
+      }
+    }
+
 
     .acoes-produto,
     .acoes-produto-responsiva {

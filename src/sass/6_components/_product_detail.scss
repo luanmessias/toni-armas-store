@@ -200,8 +200,19 @@
       }
     }
 
-   
-    
+    .parcelas-produto {
+      padding: 0px;
+      margin-bottom: 15px;
+
+      .accordion {
+        padding: 0px;
+      }
+
+      .accordion-heading {
+        padding: 10px 15px;
+      }
+    }
+
   }
 
 

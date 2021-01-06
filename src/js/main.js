@@ -169,6 +169,13 @@ const youtubeLastestVideos = () => {
       return `${date.getDate()} de ${month} de ${date.getFullYear()}`
     }
 
+    const formatTitle = (givenTitle) => {
+      const strTitle = givenTitle
+      const count = 55;
+      const result = strTitle.slice(0, count) + (strTitle.length > count ? "..." : "");
+      return result
+    }
+
     const baseHtml = `
       <div class="last_yt_videos">
         <div class="titulo-categoria">
@@ -179,7 +186,7 @@ const youtubeLastestVideos = () => {
           <div class="video main">
             <a href="https://www.youtube.com/watch?v=${data.items[0].id.videoId}" target="_blank" class="thumb"
               style="background-image: url(https://i.ytimg.com/vi_webp/${data.items[0].id.videoId}/maxresdefault.webp)"></a>
-            <h2 class="video_title">${data.items[0].snippet.title}</h2>
+            <h2 class="video_title">${formatTitle(data.items[0].snippet.title)}</h2>
             <div class="desc">por <strong>Toni Armas</strong> - ${setFormattedDate(data.items[0].snippet.publishedAt)}</div>
           </div>
 
@@ -188,14 +195,14 @@ const youtubeLastestVideos = () => {
             <div class="video">
               <a href="https://www.youtube.com/watch?v=${data.items[1].id.videoId}" target="_blank" class="thumb"
                 style="background-image: url(https://i.ytimg.com/vi_webp/${data.items[1].id.videoId}/maxresdefault.webp)"></a>
-              <h2 class="video_title">${data.items[1].snippet.title}</h2>
+              <h2 class="video_title">${formatTitle(data.items[1].snippet.title)}</h2>
               <div class="desc">por <strong>Toni Armas</strong> - ${setFormattedDate(data.items[1].snippet.publishedAt)}</div>
             </div>
 
             <div class="video">
               <a href="https://www.youtube.com/watch?v=${data.items[2].id.videoId}" target="_blank" class="thumb"
                 style="background-image: url(https://i.ytimg.com/vi_webp/${data.items[2].id.videoId}/maxresdefault.webp)"></a>
-              <h2 class="video_title">${data.items[2].snippet.title}</h2>
+              <h2 class="video_title">${formatTitle(data.items[2].snippet.title)}</h2>
               <div class="desc">por <strong>Toni Armas</strong> - ${setFormattedDate(data.items[2].snippet.publishedAt)}</div>
             </div>
 
@@ -210,6 +217,7 @@ const youtubeLastestVideos = () => {
       </div>
     `;
 
+    
     $('#corpo').append(baseHtml);
   });
 
@@ -217,13 +225,28 @@ const youtubeLastestVideos = () => {
 
 const createProductDetail = () => {
   // new tags
+  const descriptionTitle = `
+    <div class="titulo-categoria">
+      <strong>DESCRIÇÃO DO PRODUTO</strong>
+    </div>
+  `
+  const relatedProdsNewTitle = `
+    <div class="titulo-categoria">
+      <strong>Produtos relacionados</strong>
+    </div>
+  `
 
   //Existing tags
   const breadcrumb = $('.info-principal-produto .breadcrumbs');
   const productMainBloc = $('.pagina-produto .secao-principal');
-
+  const description = $('.produto .abas-custom');
+  const relatedProds = $('.produto .aproveite-tambem');
+  const relatedProdsTitle = $('.produto .aproveite-tambem > .titulo');
+  
   //Move elements
   productMainBloc.prepend(breadcrumb)
+  description.prepend(descriptionTitle)
+  relatedProdsTitle.addClass('titulo-categoria').html('<strong>Produtos relacionados</strong>')
 }
 
 //Ready actions

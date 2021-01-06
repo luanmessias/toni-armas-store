@@ -1,13 +1,14 @@
 #corpo .titulo-categoria {
   border: 0px;
   text-align: center;
+  margin: 20px 0px;
   strong {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     font-family: $second-font;
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 400;
     color: $color-gray-dark;
     text-transform: uppercase;
@@ -21,8 +22,8 @@
       background-size: contain;
       background-position: center;
       display: block;
-      width: 70px;
-      height: 50px;
+      width: 50px;
+      height: 20px;
     }
 
 
@@ -40,3 +41,4 @@
     padding-left: inherit;
   }
 }
+

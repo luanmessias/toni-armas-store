@@ -1,59 +1,90 @@
 .pagina-produto #corpo .secao-principal {
-  @media screen and #{$onlyDesktop} {
-    .esquerda {
-      display: none;
-    }
- 
-    > .produto {
-      width: 100%;
-      margin: 0px;
+
+  .esquerda {
+    display: none;
+  }
+
+  >.produto {
+    width: 100%;
+    margin: 0px;
+
+    .aproveite-tambem {
+      .titulo {
+        padding: 0px;
+        line-height: inherit;
+      }
     }
 
-    .breadcrumbs {
-      border-top: 0px;
-      ul {
-        li {
-          border: 0px;
-          a {
-            padding: 0px;
-          }
-          & + li {
-            &:before {
-              content: "/";
-              margin: 0px 5px;
-            }
+    .abas-custom {
+      .tab-content {
+        font-family: $second-font;
+        font-size: 18px;
+        border: 0px;
+        padding: 0px;
+        box-shadow: none;
+      }
+    }
+  }
+
+  .breadcrumbs {
+    border-top: 0px;
+
+    ul {
+      li {
+        border: 0px;
+
+        a {
+          padding: 0px;
+        }
+
+        &+li {
+          &:before {
+            content: "/";
+            margin: 0px 5px;
           }
         }
       }
     }
+  }
 
-    .info-principal-produto {
-      .nome-produto {
-        font-size: 36px;
-      }
+  .info-principal-produto {
+    .nome-produto {
+      font-size: 36px;
+    }
+  }
 
-      .codigo-produto {
-        display: flex;
-        justify-content: flex-start;
-        align-items: center;
+  .codigo-produto {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
 
-        > * {
-          margin-top: 0px;
-          & + * {
-            margin-left: 10px;
-          }
-        }
+    >* {
+      margin-top: 0px;
+
+      &+* {
+        margin-left: 10px;
       }
     }
+  }
+
+  .principal {
 
     .preco-produto {
 
       .preco-parcela {
+        font-family: $second-font;
+        font-weight: 600;
         font-size: 20px;
+
         strong {
           font-size: 24px;
-          & + strong {
+          font-family: $second-font;
+          font-weight: 600;
+
+          &+strong {
             font-size: 30px;
+            font-family: $second-font;
+            font-weight: 600;
           }
         }
       }
@@ -89,7 +120,7 @@
           margin-right: 10px;
         }
       }
-      
+
       .disponibilidade-produto {
         display: flex;
         justify-content: flex-end;
@@ -114,6 +145,109 @@
         }
       }
     }
+
+    >.cep {
+      width: 100%;
+      padding: 0px;
+
+      #formCalcularCep {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        input {
+          box-sizing: border-box;
+          border-radius: 0px;
+          border: 1px solid $color-gray-light;
+          height: 40px;
+        }
+
+        button {
+          background-color: $color-orange;
+          background-image: none;
+          border: 0px;
+          font-family: $third-font;
+          color: #FFF;
+          height: 40px;
+          line-height: inherit;
+
+          &:hover {
+            background-color: $color-orange-dark;
+          }
+        }
+
+
+        label {
+          margin: 0px 10px;
+        }
+
+        &:before {
+          @include set-icon($fa-var-truck);
+          font-size: 20px;
+          color: $color-gray-dark;
+        }
+      }
+
+      .borda-alpha {
+        >li {
+          &+li {
+            .nome {
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+    }
+
+   
     
-  } 
+  }
+
+
+  @media screen and #{$onlyMobile} {
+
+    .breadcrumbs {
+      ul {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        li {
+          display: block;
+
+          i {
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+    .principal {
+
+      .acoes-produto {
+        .preco-produto {
+          text-align: center;
+
+          >div {
+            text-align: center;
+          }
+        }
+      }
+
+      .comprar {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        .botao-comprar {
+          width: auto;
+          width: auto;
+          max-width: 175px;
+        }
+      }
+    }
+  }
+
 }

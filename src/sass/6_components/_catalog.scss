@@ -1,8 +1,14 @@
 .pagina-categoria {
   .listagem-linha {
     .row-fluid {
-      > li {
-        width: calc((100% / 3) - 10px);
+      @media screen and ($onlyDesktop) {
+        display: flex;
+        justify-content: space-between;
+
+        >li {
+          margin: 0px;
+          width: calc((100% / 4) - 10px);
+        }
       }
     }
   }

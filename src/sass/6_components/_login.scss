@@ -1,0 +1,32 @@
+.pagina-login {
+  .cadastro-logar {
+    input {
+      box-sizing: border-box;
+      height: 30px;
+      line-height: 30px;
+      border-radius: 0;
+    }
+
+    button {
+      font-family: $second-font;
+      font-weight: 500;
+      background-image: none;
+      background-color: $color-orange;
+      text-transform: uppercase;
+    }
+
+    @media screen and #{$onlyMobile} {
+      .controls {
+
+        input {
+         width: 100%;
+        }
+
+        button {
+          margin: 10px 0px;
+        }
+      }
+    }
+
+  }
+}

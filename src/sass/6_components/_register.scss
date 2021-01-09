@@ -1,0 +1,30 @@
+.pagina-cadastro {
+  #corpo {
+
+    
+
+    .acao-editar {
+
+      a,
+      button {
+        @include remove-shadow;
+        border: 0px;
+        font-family: $second-font;
+        font-weight: 500;
+        background-image: none;
+        text-transform: uppercase;
+        height: auto;
+        width: auto;
+        padding: 10px 15px;
+      }
+
+      a {
+        background-color: $color-gray-light;
+      }
+
+      button {
+        background-color: $color-orange;
+      }
+    }
+  }
+}

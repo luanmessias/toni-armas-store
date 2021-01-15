@@ -64,6 +64,13 @@ const createHeaderMobile = () => {
   const BtMobMenu = $('<li class="mobMenu"><i class="fas fa-bars"></i><i class="fas fa-times"></i></li>')
   const mobSearch = $('<li class="mobSearch"><i class="fas fa-search-plus"></i><i class="fas fa-search-minus"></i></li>')
   const mobAcoesConta = $('<li class="mobAcoesConta"></li>');
+  const categoryContainer = `
+    <div class="catmob">
+      <div class="titulo-categoria catmob-title">
+        <strong>NOSSAS CATEGORIAS</strong>
+      </div>
+    </div>
+  `
 
   //Already existing tag selector
   const mobileBar = $('.atalhos-mobile > ul');
@@ -71,6 +78,8 @@ const createHeaderMobile = () => {
   const mobSearchBar = $('.busca');
   const acoesConta = $('#cabecalho .acoes-conta');
   const mobMenu = $('#cabecalho .nivel-um');
+  const menu = $('.menu.superior .menu_container .nivel-um');
+
 
 
   // Actions
@@ -79,7 +88,8 @@ const createHeaderMobile = () => {
     mobileBar.append(mobSearch);
     mobMenu.append(mobAcoesConta);
     mobAcoesConta.append(acoesConta);
-    
+    $('#corpo').prepend(categoryContainer);
+    menu.clone().appendTo($('.catmob'));
 
 
     $('.mobMenu').click(function () {
@@ -159,24 +169,26 @@ const youtubeLastestVideos = () => {
   const videosUrl = `https://www.googleapis.com/youtube/v3/search?order=date&part=snippet&channelId=${channelId}&maxResults=${maxResults}&key=${apiKey}`
 
   fetch(videosUrl)
-  .then((resp) => resp.json())
-  .then(function(data) {
+    .then((resp) => resp.json())
+    .then(function (data) {
 
-    const setFormattedDate = (givenDate) => {
-      const date = new Date(givenDate);
-      const currentMonth = date.toLocaleString('pt-BR', { month: 'long' });
-      const month = currentMonth.charAt(0).toUpperCase() + currentMonth.slice(1);
-      return `${date.getDate()} de ${month} de ${date.getFullYear()}`
-    }
+      const setFormattedDate = (givenDate) => {
+        const date = new Date(givenDate);
+        const currentMonth = date.toLocaleString('pt-BR', {
+          month: 'long'
+        });
+        const month = currentMonth.charAt(0).toUpperCase() + currentMonth.slice(1);
+        return `${date.getDate()} de ${month} de ${date.getFullYear()}`
+      }
 
-    const formatTitle = (givenTitle) => {
-      const strTitle = givenTitle
-      const count = 55;
-      const result = strTitle.slice(0, count) + (strTitle.length > count ? "..." : "");
-      return result
-    }
+      const formatTitle = (givenTitle) => {
+        const strTitle = givenTitle
+        const count = 55;
+        const result = strTitle.slice(0, count) + (strTitle.length > count ? "..." : "");
+        return result
+      }
 
-    const baseHtml = `
+      const baseHtml = `
       <div class="last_yt_videos">
         <div class="titulo-categoria">
           <strong>ÚLTIMOS VÍDEOS DO CANAL</strong>
@@ -217,9 +229,9 @@ const youtubeLastestVideos = () => {
       </div>
     `;
 
-    
-    $('#corpo').append(baseHtml);
-  });
+
+      $('#corpo').append(baseHtml);
+    });
 
 }
 
@@ -242,7 +254,7 @@ const createProductDetail = () => {
   const description = $('.produto .abas-custom');
   const relatedProds = $('.produto .aproveite-tambem');
   const relatedProdsTitle = $('.produto .aproveite-tambem > .titulo');
-  
+
   //Move elements
   productMainBloc.prepend(breadcrumb)
   description.prepend(descriptionTitle)
@@ -258,9 +270,9 @@ jQuery(document).ready(function () {
   youtubeLastestVideos()
   createFooter()
   removeCpf()
-  
 
-  if($('body').hasClass('pagina-produto')) {
+
+  if ($('body').hasClass('pagina-produto')) {
     createProductDetail()
   }
 });

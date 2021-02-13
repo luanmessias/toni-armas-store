@@ -59,13 +59,72 @@
         }
 
         .selos {
+          margin-left: 0px;
+          margin-top: 30px;
+          width: 100%;
           ul {
             li {
               background-color: #FFF;
               border-radius: 5px;
               padding: 5px;
+              img{
+                width: auto;
+                height: auto;
+              }
             }
           }
+        }
+
+        .redes-sociais {
+          position: inherit;
+          position: inherit;
+          background: none;
+          box-shadow: none;
+          border: 0px;
+
+          @media screen and #{$onlyMobile} {
+            width: 100%;
+            margin-bottom: 30px;
+          }
+          
+          .titulo {
+            color: #FFF;
+            @media screen and #{$onlyMobile} {
+              display: block !important;
+            }
+          }
+
+          .lista-redes {
+            ul {
+              width: 100%;
+              min-width: 250px;
+              display: flex;
+              justify-content: flex-start;
+              align-items: flex-start;
+              li {
+                border: 0px;
+                & + li {
+                  margin-left: 5px;
+                }
+
+                a {
+                  border: 0px;
+                }
+                i {
+                  width: 45px;
+                  height: 45px;
+                  line-height: 30px;
+                  font-size: 25px;
+                  margin: 0;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                }
+              }
+            }
+
+          }
+          
         }
 
         .newsletter {

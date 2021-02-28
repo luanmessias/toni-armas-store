@@ -7,7 +7,8 @@
   "author": "Luan Messias <luanmessias10@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "gulp-s3-upload": "^1.7.3"
+    "gulp-s3-upload": "^1.7.3",
+    "serve": "^11.3.2"
   },
   "devDependencies": {
     "@aws-sdk/client-dynamodb": "^3.1.0",

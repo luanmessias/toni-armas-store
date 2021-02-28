@@ -166,7 +166,7 @@ const removeCpf = () => {
 
 const createFooter = () => {
   const logoWhite =
-    '<img class="logo_footer" src="https://loja-toni-armas.s3.amazonaws.com/img/logo_white.png" />';
+    '<img class="logo_footer" src="https://toni-armas-store.vercel.app/img/logo_white.png" />';
   const contBlocks = $(
     "#rodape .institucional .conteiner > .row-fluid > div > .row-fluid"
   );

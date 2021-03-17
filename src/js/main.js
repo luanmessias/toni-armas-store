@@ -279,7 +279,6 @@ const youtubeLastestVideos = () => {
       $("#corpo").append(baseHtml);
     });
 };
-createMenuesktop;
 
 const createProductDetail = () => {
   // new tags
